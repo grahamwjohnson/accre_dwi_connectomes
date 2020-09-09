@@ -77,11 +77,11 @@ From: ubuntu:18.04
     cp -r /tmp/ROBEX/ /APPS
 
     # Set Permissions
-    chmod 775 /INPUTS
-    chmod 775 /SUPPLEMENTAL
-    chmod 775 /APPS
-    chmod 777 /OUTPUTS # Changed to 777 because of problems with "read-only" when submitting SLURM jobs - unverified if works
-    chmod 775 /CODE
+    chmod -R 775 /INPUTS
+    chmod -R 775 /SUPPLEMENTAL
+    chmod -R 775 /APPS
+    chmod -R 775 /OUTPUTS 
+    chmod -R 775 /CODE
 
     # Clean up
     rm -r /INSTALLERS

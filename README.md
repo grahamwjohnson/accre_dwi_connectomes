@@ -21,6 +21,11 @@ dwmri.nii.gz
 aparc+aseg.mgz (from freesurfer 'recon-all':https://surfer.nmr.mgh.harvard.edu/)
 
 3) Build Singularity:
+Required files (should all be in /singularity)
+ROBEX/
+main.py
+main.sh
+
 Example build call (change the directories). This assumes you have the required files/directories in same folder as definition file (e.g. /singularity folder)
 $ sudo singularity build dwi_connectomes_v1.1.simg dwi_connectomes_def_v1.1.txt
 

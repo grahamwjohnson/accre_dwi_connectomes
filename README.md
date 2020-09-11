@@ -30,7 +30,7 @@ Example build call (change the directories). This assumes you have the required 
 $ sudo singularity build dwi_connectomes_v1.1.simg dwi_connectomes_def_v1.1.txt
 
 4) Run Singularity Image (locally to check if it works, kill it after one iteration)
-$ singularity exec -e --contain -B /tmp:/tmp -B /home/graham/PROJECTS/dwi_connectomes/inputs/subdir1:/INPUTS -B /home/graham/PROJECTS/dwi_connectomes/outputs/subdir1:/OUTPUTS /home/graham/PROJECTS/dwi_connectomes/singularity/dwi_connectomes_v1.1.simg bash /CODE/main.sh 10
+$ singularity exec -e --contain -B /tmp:/tmp -B /home/user/PROJECTS/dwi_connectomes/inputs/subdir1:/INPUTS -B /home/user/PROJECTS/dwi_connectomes/outputs/subdir1:/OUTPUTS /home/user/PROJECTS/dwi_connectomes/singularity/dwi_connectomes_v1.1.simg bash /CODE/main.sh 10
 
 5) Copy to ACCRE
 $ scp dwi_connectomes user@login.accre.vanderbilt.edu:/scratch/user/projects/

@@ -1,5 +1,5 @@
 # accre_dwi_connectomes
-Code to run MRtrix3 with Singularity 3.4 (https://sylabs.io/guides/3.4/user-guide/) containers on Vanderbilt's ACCRE.
+Code to run MRtrix3 with Singularity 3.4 (https://sylabs.io/guides/3.4/user-guide/) container on Vanderbilt's ACCRE.
 
 This will create the following outputs based on Desikan-Killiany atlas:
 SIFT2-weighted connectome 

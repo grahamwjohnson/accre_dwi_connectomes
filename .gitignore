@@ -1,2 +1,3 @@
-/inputs
-/singularity/dwi_connectomes_v1.simg
+/inputs/*
+/outputs/*
+/singularity/*.simg

@@ -1,11 +1,14 @@
 Bootstrap: docker
 From: ubuntu:18.04
 
+# Example command to build .simg from local directory: sudo singularity build dwi_connectomes_v1.1.simg dwi_connectomes_def_v1.1.txt
+
 %files
     # These files must be sitting in the same directory as this recipe file
     ./main.py /tmp
     ./main.sh /tmp
     ./ROBEX/ /tmp
+    ./fs_files /tmp
 
 %post -c /bin/bash
 
@@ -75,6 +78,7 @@ From: ubuntu:18.04
     cp /tmp/main.py /CODE
     cp /tmp/main.sh /CODE
     cp -r /tmp/ROBEX/ /APPS
+    cp -r /temp/fs_files/ /CODE
 
     # Set Permissions
     chmod -R 775 /INPUTS

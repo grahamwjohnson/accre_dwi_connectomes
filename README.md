@@ -42,3 +42,16 @@ $ singularity exec -e --contain -B /tmp:/tmp -B /scratch/user/projects/dwi_conne
 check all absolute paths in dwi_connectomes.slurm and the input_dir_list.txt and output_dir_list.txt are all correct.
 check the permissions of all of the paths are 755
 $ sbatch dwi_connectomes.slurm
+
+
+TROUBLESHOOTING
+1) Jobs failing on ACCRE because /OUTPUTS is 'read-only'
+You will get this error if there is anything wrong with the path -B bound to /OUTPUTS
+Be very careful with the .txt directory lists. To avoid ACCRE jobs failing, I have had to: 
+'cat' the .txt file on ACCRE
+copy the list
+rename the file to OLD
+'touch' new .txt files
+copy the list and save 
+
+

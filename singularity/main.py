@@ -4,6 +4,7 @@
 import subprocess
 import os
 import sys
+import time
 
 # Need to include the path to the MRTrix3 libraries to run MRTrix3 commands
 sys.path.insert(0, '/APPS/mrtrix3/lib')
@@ -29,7 +30,11 @@ else:
     print("'tmp' directory already exists")
 
 # Make the final results subdirectory
-results_dir = "/OUTPUTS/results/"
+seconds = time.time()
+tstring = str(time.asctime(time.localtime(seconds)))
+tstring = tstring.replace(' ','_')
+tstring = tstring.replace(':','')
+results_dir = "/OUTPUTS/results_" + tstring + "/"
 if not os.path.exists(results_dir):
     os.mkdir(results_dir)
     print("Created 'results' directory")

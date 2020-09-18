@@ -6,7 +6,7 @@
 #SBATCH --mail-user=graham.w.johnson@vanderbilt.edu
 #SBATCH --mail-type=ALL
 #SBATCH -J dwi_connectomes
-#SBATCH --ntasks=8
+#SBATCH --ntasks=1
 #SBATCH --nodes=1
 #SBATCH --time=04-12:00:00
 #SBATCH --mem=4G
@@ -23,5 +23,5 @@ echo ${in_dirs[$SLURM_ARRAY_TASK_ID]}
 echo ${out_dirs[$SLURM_ARRAY_TASK_ID]}
 
 # First input to main.sh is number of tckgen iterations, second is number of threads (0 --> disabled multithreading)
-singularity exec -e --contain -B /tmp:/tmp -B ${in_dirs[$SLURM_ARRAY_TASK_ID]}:/INPUTS -B ${out_dirs[$SLURM_ARRAY_TASK_ID]}:/OUTPUTS /scratch/johnsgw2/projects/dwi_connectomes/singularity/dwi_connectomes_v1.2.simg bash /CODE/main.sh 3 0
+singularity exec -e --contain -B /tmp:/tmp -B ${in_dirs[$SLURM_ARRAY_TASK_ID]}:/INPUTS -B ${out_dirs[$SLURM_ARRAY_TASK_ID]}:/OUTPUTS /scratch/johnsgw2/projects/dwi_connectomes/singularity/dwi_connectomes_v1.3.simg bash /CODE/main.sh 3 0
 

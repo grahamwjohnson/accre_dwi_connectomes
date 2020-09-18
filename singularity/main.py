@@ -22,7 +22,7 @@ loops = int(sys.argv[1])
 print("We will do " + str(loops) + " iterations of tckgen")
 
 # threads of 0 disables multithreading
-threads = int(sys.argv[1])
+threads = int(sys.argv[2])
 print("We will use " + str(threads) + " CPU threads")
 
 # Make a temporary subdirectory that will be deleted after processing to save space

@@ -31,9 +31,14 @@ if not os.path.exists(tmp_dir):
     os.mkdir(tmp_dir)
     print("Created 'tmp' directory")
 else:
-    print("'tmp' directory already exists")
+    # Delete the directory and make new one
+	cmd ='rm -r {}'.format(tmp_dir)
+    subprocess.check_call(cmd, shell=True)
+	os.mkdir(tmp_dir)
+    print("'tmp' directory already existed Deleted and remade new 'tmp' directory")
 
 # Make the final results subdirectory
+# Create a timestamp so that multiple runs can be done with same output directories
 seconds = time.time()
 tstring = str(time.asctime(time.localtime(seconds)))
 tstring = tstring.replace(' ','_')

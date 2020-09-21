@@ -17,13 +17,6 @@ From: ubuntu:18.04
     mkdir -p OUTPUTS
     mkdir -p CODE
 
-    # Set Permissions
-    chmod -R 775 /INPUTS
-    chmod -R 775 /SUPPLEMENTAL
-    chmod -R 775 /APPS
-    chmod -R 775 /OUTPUTS 
-    chmod -R 775 /CODE
-
     # Update all libraries
     apt-get -y update
 
@@ -81,6 +74,13 @@ From: ubuntu:18.04
     cd ANTS-build
     make install 2>&1 | tee install.log
     cd /
+
+    # Set Permissions
+    chmod -R 775 /INPUTS
+    chmod -R 775 /SUPPLEMENTAL
+    chmod -R 775 /APPS
+    chmod -R 775 /OUTPUTS 
+    chmod -R 775 /CODE
 
     # Clean up
     rm -r /INSTALLERS

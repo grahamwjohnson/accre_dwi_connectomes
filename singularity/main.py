@@ -225,9 +225,11 @@ for i in range(loops):
     cmd = 'tcksample {}10M.tck {}fa.mif {}mean_FA_per_streamline.csv -stat_tck mean; tck2connectome {}10M.tck {}parc.mif {}meanFA_connectome_{}.csv -scale_file {}mean_FA_per_streamline.csv -stat_edge mean -symmetric -force -nthreads {}'.format(tck_tmp_dir,tmp_dir,tck_tmp_dir,tck_tmp_dir,tmp_dir,results_dir,str(i+1),tck_tmp_dir,str(threads))
     subprocess.check_call(cmd, shell=True)
 
-    # Delete the TCK temporary directory
-    cmd = 'rm -r {}'.format(tck_tmp_dir)
-    subprocess.check_call(cmd, shell=True)
+    # If only doing one iteration and keep_temp is 1, do not delete 10M.tck
+    if keep_temp == 0 or loops > 1:
+        # Delete the TCK temporary directory
+        cmd = 'rm -r {}'.format(tck_tmp_dir)
+        subprocess.check_call(cmd, shell=True)
 
 print("All connectome iterations complete")
 

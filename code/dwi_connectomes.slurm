@@ -22,6 +22,7 @@ mapfile -t out_dirs < /scratch/johnsgw2/projects/dwi_connectomes/code/output_dir
 echo ${in_dirs[$SLURM_ARRAY_TASK_ID]}
 echo ${out_dirs[$SLURM_ARRAY_TASK_ID]}
 
-# First input to main.sh is number of tckgen iterations, second is number of threads (0 --> disabled multithreading)
-singularity exec -e --contain -B /tmp:/tmp -B ${in_dirs[$SLURM_ARRAY_TASK_ID]}:/INPUTS -B ${out_dirs[$SLURM_ARRAY_TASK_ID]}:/OUTPUTS /scratch/johnsgw2/projects/dwi_connectomes/singularity/dwi_connectomes_v1.3.simg bash /CODE/main.sh 3 0
+# First input to main.sh is number of tckgen iterations, second is number of threads (0 --> disabled multithreading),
+# third is boolean to keep temp files (0 == delete, 1 == keep) 
+singularity exec -e --contain -B /tmp:/tmp -B ${in_dirs[$SLURM_ARRAY_TASK_ID]}:/INPUTS -B ${out_dirs[$SLURM_ARRAY_TASK_ID]}:/OUTPUTS /scratch/johnsgw2/projects/dwi_connectomes/singularity/dwi_connectomes_v1.3.simg bash /CODE/main.sh 3 0 1
 

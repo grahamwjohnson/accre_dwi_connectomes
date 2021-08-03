@@ -3,6 +3,8 @@ From: ubuntu:18.04
 
 # Example command to build .simg from local directory: sudo singularity build dwi_connectomes_v1.1.simg recipe_dwi_connectomes_v1.1.txt
 
+# Version 1.4: 8/3/2021 - added ability to keep temp files with third input variable
+
 %post -c /bin/bash
 
     cd /

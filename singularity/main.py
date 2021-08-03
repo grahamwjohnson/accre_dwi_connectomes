@@ -25,6 +25,10 @@ print("We will do " + str(loops) + " iterations of tckgen")
 threads = int(sys.argv[2])
 print("We will use " + str(threads) + " CPU threads")
 
+# Keep temp files?
+keep_temp = int(sys.argv[3])
+print("Keep temp files? " + str(keep_temp))
+
 # Make a temporary subdirectory that will be deleted after processing to save space
 tmp_dir = "/OUTPUTS/tmp/"
 if not os.path.exists(tmp_dir):
@@ -227,11 +231,12 @@ for i in range(loops):
 
 print("All connectome iterations complete")
 
-# Delete the temporary directory
-cmd = 'rm -r {}'.format(tmp_dir)
-subprocess.check_call(cmd, shell=True)
+# Delete the temporary directory if desired
+if keep_temp == 0:
+    cmd = 'rm -r {}'.format(tmp_dir)
+    subprocess.check_call(cmd, shell=True)
+    print("Removed tmp directory")
 
-print("Removed tmp directory")
 print("Script complete")
 
 

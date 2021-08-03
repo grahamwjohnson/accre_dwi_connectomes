@@ -29,17 +29,6 @@ print("We will use " + str(threads) + " CPU threads")
 keep_temp = int(sys.argv[3])
 print("Keep temp files? " + str(keep_temp))
 
-# Make a temporary subdirectory that will be deleted after processing to save space
-tmp_dir = "/OUTPUTS/tmp/"
-if not os.path.exists(tmp_dir):
-    os.mkdir(tmp_dir)
-    print("Created 'tmp' directory")
-else:
-    # Delete the directory and make new one
-    cmd ='rm -r {}'.format(tmp_dir)
-    subprocess.check_call(cmd, shell=True)
-    os.mkdir(tmp_dir)
-    print("'tmp' directory already existed Deleted and remade new 'tmp' directory")
 
 # Make the final results subdirectory
 # Create a timestamp so that multiple runs can be done with same output directories
@@ -53,6 +42,18 @@ if not os.path.exists(results_dir):
     print("Created 'results' directory")
 else:
     print("'results' directory already exists")
+
+# Make a temporary subdirectory that will be deleted after processing to save space
+tmp_dir = "/OUTPUTS/tmp_" + tstring + "/"
+if not os.path.exists(tmp_dir):
+    os.mkdir(tmp_dir)
+    print("Created 'tmp' directory")
+else:
+    # Delete the directory and make new one
+    cmd ='rm -r {}'.format(tmp_dir)
+    subprocess.check_call(cmd, shell=True)
+    os.mkdir(tmp_dir)
+    print("'tmp' directory already existed Deleted and remade new 'tmp' directory")
 
 # Do all of the processing in 'tmp' directory   
 

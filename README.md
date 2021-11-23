@@ -44,6 +44,7 @@ check the permissions of all of the paths are 755
 $ sbatch dwi_connectomes.slurm
 
 
+
 TROUBLESHOOTING
 1) Jobs failing on ACCRE because /OUTPUTS is 'read-only'
 You will get this error if there is anything wrong with the path -B bound to /OUTPUTS
